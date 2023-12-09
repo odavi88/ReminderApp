@@ -21,7 +21,9 @@ struct MainView: View {
                 Text("Add")
             })
             List {
-
+                ForEach(reminders) { reminder in
+                    Text(reminder.title)
+                }
             }
             .listStyle(.insetGrouped)
             .navigationTitle("Reminders")
