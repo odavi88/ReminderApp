@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct MainView: View {
+    @State private var reminders: [Reminder] = []
     var body: some View {
         NavigationStack {
             List {
