@@ -8,17 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		5D0E22232B24828900C23903 /* ReminderApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D0E22222B24828900C23903 /* ReminderApp.swift */; };
-		5D0E22252B24828900C23903 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D0E22242B24828900C23903 /* ContentView.swift */; };
 		5D0E22272B24828A00C23903 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5D0E22262B24828A00C23903 /* Assets.xcassets */; };
 		5D0E222A2B24828A00C23903 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5D0E22292B24828A00C23903 /* Preview Assets.xcassets */; };
+		5D0E22342B2482F000C23903 /* Reminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D0E22332B2482F000C23903 /* Reminder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		5D0E221F2B24828900C23903 /* Reminder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Reminder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D0E22222B24828900C23903 /* ReminderApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderApp.swift; sourceTree = "<group>"; };
-		5D0E22242B24828900C23903 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		5D0E22262B24828A00C23903 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5D0E22292B24828A00C23903 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		5D0E22332B2482F000C23903 /* Reminder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reminder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,7 +52,9 @@
 			isa = PBXGroup;
 			children = (
 				5D0E22222B24828900C23903 /* ReminderApp.swift */,
-				5D0E22242B24828900C23903 /* ContentView.swift */,
+				5D0E22322B2482A800C23903 /* Views */,
+				5D0E22312B2482A400C23903 /* ViewModel */,
+				5D0E22302B2482A000C23903 /* Model */,
 				5D0E22262B24828A00C23903 /* Assets.xcassets */,
 				5D0E22282B24828A00C23903 /* Preview Content */,
 			);
@@ -65,6 +67,28 @@
 				5D0E22292B24828A00C23903 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		5D0E22302B2482A000C23903 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5D0E22332B2482F000C23903 /* Reminder.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		5D0E22312B2482A400C23903 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		5D0E22322B2482A800C23903 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,8 +161,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5D0E22252B24828900C23903 /* ContentView.swift in Sources */,
 				5D0E22232B24828900C23903 /* ReminderApp.swift in Sources */,
+				5D0E22342B2482F000C23903 /* Reminder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
