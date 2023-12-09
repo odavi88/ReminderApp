@@ -12,6 +12,14 @@ struct MainView: View {
     @State private var titleTextField: String = ""
     var body: some View {
         NavigationStack {
+            TextField("write...", text: $titleTextField)
+                .textFieldStyle(.roundedBorder)
+                .padding(.horizontal)
+            Button(action: {
+                
+            }, label: {
+                Text("Add")
+            })
             List {
 
             }
