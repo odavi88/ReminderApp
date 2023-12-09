@@ -8,13 +8,11 @@
 import SwiftUI
 
 struct MainView: View {
-    @State private var reminders: [Reminder] = [
-        Reminder(title: "")
-    ]
+    @State private var reminders: [Reminder] = []
     var body: some View {
         NavigationStack {
             Button(action: {
-//                addReminder()
+
             }, label: {
                 Text("Add")
             })
@@ -27,11 +25,6 @@ struct MainView: View {
             .navigationTitle("Reminders")
         }
     }
-//    func addReminder() {
-//        let reminder = Reminder(title: titleTextField)
-//        reminders.append(reminder)
-//        titleTextField = ""
-//    }
 }
 
 #Preview {
