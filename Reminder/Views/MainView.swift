@@ -9,6 +9,7 @@ import SwiftUI
 
 struct MainView: View {
     @State private var reminders: [Reminder] = []
+    @State private var titleTextField: String = ""
     var body: some View {
         NavigationStack {
             List {
