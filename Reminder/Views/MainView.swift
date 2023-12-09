@@ -16,7 +16,7 @@ struct MainView: View {
                 .textFieldStyle(.roundedBorder)
                 .padding(.horizontal)
             Button(action: {
-                
+                addReminder()
             }, label: {
                 Text("Add")
             })
@@ -28,6 +28,11 @@ struct MainView: View {
             .listStyle(.insetGrouped)
             .navigationTitle("Reminders")
         }
+    }
+    func addReminder() {
+        let reminder = Reminder(title: titleTextField)
+        reminders.append(reminder)
+        titleTextField = ""
     }
 }
 
