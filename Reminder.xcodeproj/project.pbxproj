@@ -12,6 +12,7 @@
 		5D0E222A2B24828A00C23903 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5D0E22292B24828A00C23903 /* Preview Assets.xcassets */; };
 		5D0E22342B2482F000C23903 /* Reminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D0E22332B2482F000C23903 /* Reminder.swift */; };
 		5D0E22362B24854B00C23903 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D0E22352B24854B00C23903 /* MainView.swift */; };
+		5D2B2E0E2B252FF80095A6AE /* ListRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2B2E0D2B252FF80095A6AE /* ListRowView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +22,7 @@
 		5D0E22292B24828A00C23903 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		5D0E22332B2482F000C23903 /* Reminder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reminder.swift; sourceTree = "<group>"; };
 		5D0E22352B24854B00C23903 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		5D2B2E0D2B252FF80095A6AE /* ListRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRowView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +92,7 @@
 			isa = PBXGroup;
 			children = (
 				5D0E22352B24854B00C23903 /* MainView.swift */,
+				5D2B2E0D2B252FF80095A6AE /* ListRowView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -167,6 +170,7 @@
 				5D0E22232B24828900C23903 /* ReminderApp.swift in Sources */,
 				5D0E22362B24854B00C23903 /* MainView.swift in Sources */,
 				5D0E22342B2482F000C23903 /* Reminder.swift in Sources */,
+				5D2B2E0E2B252FF80095A6AE /* ListRowView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

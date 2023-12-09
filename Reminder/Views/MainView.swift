@@ -8,32 +8,30 @@
 import SwiftUI
 
 struct MainView: View {
-    @State private var reminders: [Reminder] = []
-    @State private var titleTextField: String = ""
+    @State private var reminders: [Reminder] = [
+        Reminder(title: "")
+    ]
     var body: some View {
         NavigationStack {
-            TextField("write...", text: $titleTextField)
-                .textFieldStyle(.roundedBorder)
-                .padding(.horizontal)
             Button(action: {
-                addReminder()
+//                addReminder()
             }, label: {
                 Text("Add")
             })
             List {
                 ForEach(reminders) { reminder in
-                    Text(reminder.title)
+                    ListRowView()
                 }
             }
-            .listStyle(.insetGrouped)
+            .listStyle(.inset)
             .navigationTitle("Reminders")
         }
     }
-    func addReminder() {
-        let reminder = Reminder(title: titleTextField)
-        reminders.append(reminder)
-        titleTextField = ""
-    }
+//    func addReminder() {
+//        let reminder = Reminder(title: titleTextField)
+//        reminders.append(reminder)
+//        titleTextField = ""
+//    }
 }
 
 #Preview {
