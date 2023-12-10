@@ -11,5 +11,9 @@ class ReminderViewModel: ObservableObject {
     @Published var reminders: [Reminder] = []
     @Published var reminderTextField: String = ""
     
-    
+    func add() {
+        let reminder = Reminder(title: reminderTextField)
+        reminders.append(reminder)
+        reminderTextField = ""
+    }
 }
