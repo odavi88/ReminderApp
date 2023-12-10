@@ -23,10 +23,12 @@ struct MainView: View {
             .toolbar {
                 ToolbarItemGroup(placement: .primaryAction) {
                     Button(action: {
-                        
+                        vm.isPresented.toggle()
                     }, label: {
                         Text("Create")
-                    })
+                    }).sheet(isPresented: $vm.isPresented) {
+                        InputView(vm: vm)
+                    }
                 }
             }
         }
