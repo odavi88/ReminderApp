@@ -16,5 +16,6 @@ class ReminderViewModel: ObservableObject {
         let reminder = Reminder(title: reminderTextField)
         reminders.append(reminder)
         reminderTextField = ""
+        isPresented = false
     }
 }
