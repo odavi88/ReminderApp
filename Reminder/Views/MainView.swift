@@ -13,12 +13,6 @@ struct MainView: View {
     @State private var reminderTextfield: String = ""
     var body: some View {
         NavigationStack {
-            TextField("create a reminder", text: $vm.reminderTextField)
-            Button(action: {
-                vm.add()
-            }, label: {
-                Text("Add")
-            })
             List {
                 ForEach(vm.reminders) { reminder in
                     Text(reminder.title)
