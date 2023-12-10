@@ -13,6 +13,7 @@
 		5D0E22342B2482F000C23903 /* Reminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D0E22332B2482F000C23903 /* Reminder.swift */; };
 		5D0E22362B24854B00C23903 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D0E22352B24854B00C23903 /* MainView.swift */; };
 		5D2B2E102B2532B60095A6AE /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2B2E0F2B2532B60095A6AE /* ViewModel.swift */; };
+		5D2B2E122B253AD70095A6AE /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2B2E112B253AD70095A6AE /* InputView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		5D0E22332B2482F000C23903 /* Reminder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reminder.swift; sourceTree = "<group>"; };
 		5D0E22352B24854B00C23903 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		5D2B2E0F2B2532B60095A6AE /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		5D2B2E112B253AD70095A6AE /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +95,7 @@
 			isa = PBXGroup;
 			children = (
 				5D0E22352B24854B00C23903 /* MainView.swift */,
+				5D2B2E112B253AD70095A6AE /* InputView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -169,6 +172,7 @@
 			files = (
 				5D2B2E102B2532B60095A6AE /* ViewModel.swift in Sources */,
 				5D0E22232B24828900C23903 /* ReminderApp.swift in Sources */,
+				5D2B2E122B253AD70095A6AE /* InputView.swift in Sources */,
 				5D0E22362B24854B00C23903 /* MainView.swift in Sources */,
 				5D0E22342B2482F000C23903 /* Reminder.swift in Sources */,
 			);
