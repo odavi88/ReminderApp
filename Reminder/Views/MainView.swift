@@ -31,6 +31,11 @@ struct MainView: View {
                     }
                 }
             }
+            .overlay {
+                if vm.reminders.isEmpty {
+                    ContentUnavailableView("No Reminders Added", systemImage: "tray.fill")
+                }
+            }
         }
     }
 }
