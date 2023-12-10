@@ -10,13 +10,18 @@ import SwiftUI
 struct InputView: View {
     @ObservedObject var vm: ReminderViewModel
     var body: some View {
-        VStack {
-            TextField("create a reminder", text: $vm.reminderTextField)
-            Button(action: {
-                vm.add()
-            }, label: {
-                Text("Add")
-            })
+        NavigationStack {
+            VStack {
+                TextField("create a reminder", text: $vm.reminderTextField)
+                Spacer()
+            }
+            .toolbar {
+                Button(action: {
+                    vm.add()
+                }, label: {
+                    Text("Add")
+                })
+            }
         }
     }
 }
