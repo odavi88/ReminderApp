@@ -26,6 +26,15 @@ struct MainView: View {
             }
             .listStyle(.inset)
             .navigationTitle("Reminders")
+            .toolbar {
+                ToolbarItemGroup(placement: .primaryAction) {
+                    Button(action: {
+                        
+                    }, label: {
+                        Text("Create")
+                    })
+                }
+            }
         }
     }
 }
