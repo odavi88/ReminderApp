@@ -8,29 +8,25 @@
 import SwiftUI
 
 struct MainView: View {
+    @StateObject var vm = ReminderViewModel()
     @State private var reminders: [Reminder] = []
     @State private var reminderTextfield: String = ""
     var body: some View {
         NavigationStack {
-            TextField("create a reminder", text: $reminderTextfield)
+            TextField("create a reminder", text: $vm.reminderTextField)
             Button(action: {
-                add()
+                vm.add()
             }, label: {
                 Text("Add")
             })
             List {
-                ForEach(reminders) { reminder in
+                ForEach(vm.reminders) { reminder in
                     Text(reminder.title)
                 }
             }
             .listStyle(.inset)
             .navigationTitle("Reminders")
         }
-    }
-    func add() {
-        let reminder = Reminder(title: reminderTextfield)
-        reminders.append(reminder)
-        reminderTextfield = ""
     }
 }
 
