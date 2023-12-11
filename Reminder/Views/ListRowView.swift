@@ -12,7 +12,7 @@ struct ListRowView: View {
     var body: some View {
             ForEach(vm.reminders) { reminder in
                     HStack {
-                        Image(systemName: vm.isCompleted ? "checkmark.circle" : "circle" )
+                        CompleteButtonView(vm: vm)
                         Text(reminder.title)
                         Spacer()
                         Image(systemName: "info.circle")
