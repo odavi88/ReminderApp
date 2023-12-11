@@ -13,6 +13,8 @@ struct InputView: View {
         NavigationStack {
             VStack {
                 TextField("create a reminder", text: $vm.reminderTextField)
+                    .textFieldStyle(.roundedBorder)
+                    .padding(.horizontal)
                 Spacer()
             }
             .toolbar {
