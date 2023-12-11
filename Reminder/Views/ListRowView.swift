@@ -8,11 +8,18 @@
 import SwiftUI
 
 struct ListRowView: View {
+    @ObservedObject var vm: ReminderViewModel
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        HStack {
+            ForEach(vm.reminders) { reminder in
+                Image(systemName: "circle")
+                Text(reminder.title)
+                Image(systemName: "info.circle")
+            }
+        }
     }
 }
 
 #Preview {
-    ListRowView()
+    ListRowView(vm: ReminderViewModel())
 }
