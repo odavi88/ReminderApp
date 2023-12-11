@@ -10,13 +10,14 @@ import SwiftUI
 struct ListRowView: View {
     @ObservedObject var vm: ReminderViewModel
     var body: some View {
-        HStack {
             ForEach(vm.reminders) { reminder in
-                Image(systemName: "circle")
-                Text(reminder.title)
-                Image(systemName: "info.circle")
+                    HStack {
+                        Image(systemName: vm.isCompleted ? "checkmark.circle" : "circle" )
+                        Text(reminder.title)
+                        Spacer()
+                        Image(systemName: "info.circle")
+                    }
             }
-        }
     }
 }
 

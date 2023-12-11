@@ -14,10 +14,9 @@ struct MainView: View {
     var body: some View {
         NavigationStack {
             List {
-                ForEach(vm.reminders) { reminder in
-                    Text(reminder.title)
-                }
+            ListRowView(vm: vm)
             }
+//            .listRowSeparator(.hidden)
             .listStyle(.inset)
             .navigationTitle("Reminders")
             .toolbar {
