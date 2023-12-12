@@ -19,4 +19,8 @@ class ReminderViewModel: ObservableObject {
         reminderTextField = ""
         isPresented = false
     }
+    
+    func toggleComplete(index: Int) {
+        reminders[index].isCompleted.toggle()
+    }
 }
