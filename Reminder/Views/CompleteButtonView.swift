@@ -10,13 +10,13 @@ import SwiftUI
 struct CompleteButtonView: View {
     @ObservedObject var vm: ReminderViewModel
     var body: some View {
-        ForEach(vm.reminders) { reminder in
+        ForEach(vm.reminders.indices, id: \.self) { index in
             Button(action: {
-                vm.isCompleted.toggle()
+                vm.toggleComplete(index: index)
                 }, label: {
-                    Image(systemName: vm.isCompleted ? "checkmark.circle" : "circle" )
+                    Image(systemName: vm.reminders[index].isCompleted ? "checkmark.circle" : "circle" )
                         .font(.title3)
-                        .fontWeight(vm.isCompleted ? .bold : .regular)
+                        .fontWeight(vm.reminders[index].isCompleted ? .bold : .regular)
                 })
             .foregroundStyle(.fill)
         }
