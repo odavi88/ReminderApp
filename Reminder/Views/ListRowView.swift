@@ -10,10 +10,18 @@ import SwiftUI
 struct ListRowView: View {
     @ObservedObject var vm: ReminderViewModel
     var body: some View {
-            ForEach(vm.reminders) { reminder in
+            ForEach(vm.reminders.indices, id: \.self) { index in
                     HStack {
-                        CompleteButtonView(vm: vm)
-                        Text(reminder.title)
+                        Button(action: {
+                            vm.toggleComplete(index: index)
+                            }, label: {
+                                Image(systemName: vm.reminders[index].isCompleted ? "checkmark.circle" : "circle" )
+                                    .font(.title3)
+                                    .fontWeight(vm.reminders[index].isCompleted ? .bold : .regular)
+                            })
+                        .fontWeight(vm.reminders[index].isCompleted ? .bold : .thin)
+                        .foregroundStyle(.gray)
+                        Text(vm.reminders[index].title)
                         Spacer()
                         Image(systemName: "info.circle")
                     }

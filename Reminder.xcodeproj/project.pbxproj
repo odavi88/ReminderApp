@@ -18,7 +18,6 @@
 		5D2B2E172B2752800095A6AE /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 5D2B2E162B2752800095A6AE /* FirebaseAnalytics */; };
 		5D2B2E192B2752800095A6AE /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 5D2B2E182B2752800095A6AE /* FirebaseAnalyticsSwift */; };
 		5D2B2E1B2B27AB780095A6AE /* ListRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2B2E1A2B27AB780095A6AE /* ListRowView.swift */; };
-		5D2B2E1D2B27B4F00095A6AE /* CompleteButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2B2E1C2B27B4F00095A6AE /* CompleteButtonView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,7 +31,6 @@
 		5D2B2E112B253AD70095A6AE /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		5D2B2E132B2751430095A6AE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5D2B2E1A2B27AB780095A6AE /* ListRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRowView.swift; sourceTree = "<group>"; };
-		5D2B2E1C2B27B4F00095A6AE /* CompleteButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteButtonView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,7 +106,6 @@
 				5D0E22352B24854B00C23903 /* MainView.swift */,
 				5D2B2E112B253AD70095A6AE /* InputView.swift */,
 				5D2B2E1A2B27AB780095A6AE /* ListRowView.swift */,
-				5D2B2E1C2B27B4F00095A6AE /* CompleteButtonView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -191,7 +188,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5D2B2E1D2B27B4F00095A6AE /* CompleteButtonView.swift in Sources */,
 				5D2B2E102B2532B60095A6AE /* ViewModel.swift in Sources */,
 				5D0E22232B24828900C23903 /* ReminderApp.swift in Sources */,
 				5D2B2E122B253AD70095A6AE /* InputView.swift in Sources */,
