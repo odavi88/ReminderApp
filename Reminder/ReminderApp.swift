@@ -21,7 +21,7 @@ import Firebase
 @main
 struct ReminderApp: App {
 //    @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
-    
+    @StateObject var vm = ReminderViewModel()
     init() {
         FirebaseApp.configure()
     }

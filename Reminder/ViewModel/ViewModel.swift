@@ -6,11 +6,15 @@
 //
 
 import Foundation
+import FirebaseFirestore
+import Firebase
 
 class ReminderViewModel: ObservableObject {
     @Published var reminders: [Reminder] = []
     @Published var reminderTextField: String = ""
     @Published var isPresented: Bool = false
+    
+    let db = Firestore.firestore()
     
     func add() {
         let reminder = Reminder(title: reminderTextField)
