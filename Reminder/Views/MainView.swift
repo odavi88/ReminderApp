@@ -14,9 +14,7 @@ struct MainView: View {
     var body: some View {
         NavigationStack {
             List {
-                ForEach(vm.reminders) { reminder in
-                    ListRowView(vm: vm)
-                }
+                ListRowView(vm: vm)
             }
             .refreshable {
                 vm.fetchReminders()
