@@ -19,6 +19,7 @@ struct ReminderApp: App {
     var body: some Scene {
         WindowGroup {
             MainView()
+                .environmentObject(vm)
         }
     }
 }

@@ -15,43 +15,43 @@ class ReminderViewModel: ObservableObject {
     @Published var isPresented: Bool = false
     @Published var isCompleted: Bool = false
     
+    let db = Firestore.firestore()
     
-    
-    func getData() {
-        let db = Firestore.firestore()
-        
-        db.collection("reminders").getDocuments { snapshot, error in
-            if error == nil {
-                if let snapshot = snapshot {
-                    
-                    DispatchQueue.main.async {
-                        self.reminders = snapshot.documents.map { doc in
-                            return Reminder(
-                                title: doc["title"] as? String ?? "",
-                                isCompleted: doc[false] as? Bool ?? false)
-                        }
-                    }
-                }
-            } else {
-                
-            }
-        }
+    init() {
+        fetchReminders()
     }
     
     func addData(title: String, isComplete: Bool) {
         
-        let reminder = Reminder(title: reminderTextField)
-        reminders.append(reminder)
-        reminderTextField = ""
         isPresented = false
         
-        let db = Firestore.firestore()
+        let ref = db.collection("reminders").document(title)
+        let randomId = UUID().uuidString
         
-        db.collection("reminders").addDocument(data: ["title": title, "isComplete": isComplete]) { error in
-            if error == nil {
-                self.getData()
-            } else {
-                
+        ref.setData(["id": randomId, "title": title, "isComplete": isComplete])
+    }
+    
+    func fetchReminders() {
+        reminders.removeAll()
+        
+        let ref = db.collection("reminders")
+        ref.getDocuments { snapshot, error in
+            guard error == nil else {
+                print(error!.localizedDescription)
+                return
+            }
+            
+            if let snapshot = snapshot {
+                for document in snapshot.documents {
+                    let data = document.data()
+                    
+                    let id = data["id"] as? String ?? ""
+                    let title = data["title"] as? String ?? ""
+                    let isComplete = data["isComplete"] as? Bool ?? false
+                    
+                    let reminder = Reminder(id: id, title: title, isCompleted: isComplete)
+                    self.reminders.append(reminder)
+                }
             }
         }
     }

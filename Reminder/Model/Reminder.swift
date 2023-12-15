@@ -7,8 +7,8 @@
 
 import Foundation
 
-struct Reminder: Identifiable, Hashable {
-    let id = UUID()
+struct Reminder: Identifiable {
+    let id: String
     var title: String
     var isCompleted: Bool = false
 }
