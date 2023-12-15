@@ -15,15 +15,35 @@ class ReminderViewModel: ObservableObject {
     @Published var isPresented: Bool = false
     @Published var isCompleted: Bool = false
     
+    let db = Firestore.firestore()
     
     func addData(title: String, isComplete: Bool) {
         
         isPresented = false
-        
-        let db = Firestore.firestore()
+
         let ref = db.collection("reminders").document(title)
         let randomId = UUID().uuidString
         
         ref.setData(["id": randomId, "title": title, "isComplete": isComplete])
+    }
+    
+    func fetchReminders() {
+        let ref = db.collection("reminders")
+        ref.getDocuments { snapshot, error in
+            guard error == nil else {
+                print(error!.localizedDescription)
+                return
+            }
+            
+            if let snapshot = snapshot {
+                for document in snapshot.documents {
+                    let data = document.data()
+                    
+                    let id = data["id"] as? String ?? ""
+                    let title = data["title"] as? String ?? ""
+                    let isComplete = data[false] as? Bool ?? false
+                }
+            }
+        }
     }
 }
