@@ -19,7 +19,7 @@ struct InputView: View {
             }
             .toolbar {
                 Button(action: {
-                    vm.add()
+                    vm.addData(title: vm.reminderTextField, isComplete: vm.isCompleted)
                 }, label: {
                     Text("Add")
                 })
