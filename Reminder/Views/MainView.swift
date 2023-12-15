@@ -37,6 +37,9 @@ struct MainView: View {
             }
         }
     }
+//    init() {
+//        vm.getData()
+//    }
 }
 
 #Preview {

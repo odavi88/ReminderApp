@@ -6,21 +6,16 @@
 //
 
 import SwiftUI
-import FirebaseCore
-
-
-class AppDelegate: NSObject, UIApplicationDelegate {
-  func application(_ application: UIApplication,
-                   didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
-    FirebaseApp.configure()
-
-    return true
-  }
-}
+import Firebase
 
 @main
 struct ReminderApp: App {
-    @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
+    @StateObject var vm = ReminderViewModel()
+    init() {
+        FirebaseApp.configure()
+        print("Configured Firebase!")
+    }
+    
     var body: some Scene {
         WindowGroup {
             MainView()
