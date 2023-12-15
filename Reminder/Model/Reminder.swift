@@ -8,7 +8,7 @@
 import Foundation
 
 struct Reminder: Identifiable {
-    let id = UUID()
+    let id: String
     var title: String
     var isCompleted: Bool = false
 }
