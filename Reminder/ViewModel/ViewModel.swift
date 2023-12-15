@@ -17,6 +17,10 @@ class ReminderViewModel: ObservableObject {
     
     let db = Firestore.firestore()
     
+    init() {
+        fetchReminders()
+    }
+    
     func addData(title: String, isComplete: Bool) {
         
         isPresented = false
@@ -28,6 +32,8 @@ class ReminderViewModel: ObservableObject {
     }
     
     func fetchReminders() {
+        reminders.removeAll()
+        
         let ref = db.collection("reminders")
         ref.getDocuments { snapshot, error in
             guard error == nil else {
@@ -41,7 +47,10 @@ class ReminderViewModel: ObservableObject {
                     
                     let id = data["id"] as? String ?? ""
                     let title = data["title"] as? String ?? ""
-                    let isComplete = data[false] as? Bool ?? false
+                    let isComplete = data["isComplete"] as? Bool ?? false
+                    
+                    let reminder = Reminder(id: id, title: title, isCompleted: isComplete)
+                    self.reminders.append(reminder)
                 }
             }
         }

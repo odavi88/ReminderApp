@@ -18,6 +18,9 @@ struct MainView: View {
                     Text(reminder.title)
                 }
             }
+            .refreshable {
+                vm.fetchReminders()
+            }
             .listStyle(.inset)
             .navigationTitle("Reminders")
             .toolbar {
