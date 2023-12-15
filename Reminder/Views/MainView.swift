@@ -15,7 +15,7 @@ struct MainView: View {
         NavigationStack {
             List {
                 ForEach(vm.reminders) { reminder in
-                    Text(reminder.title)
+                    ListRowView(vm: vm)
                 }
             }
             .refreshable {
