@@ -56,6 +56,10 @@ class ReminderViewModel: ObservableObject {
         }
     }
     
+    func delete(at offsets: IndexSet) {
+        reminders.remove(atOffsets: offsets)
+    }
+    
     func toggleComplete(index: Int) {
         reminders[index].isCompleted.toggle()
     }

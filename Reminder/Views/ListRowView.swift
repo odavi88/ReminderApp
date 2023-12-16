@@ -25,7 +25,7 @@ struct ListRowView: View {
                         Spacer()
                         Image(systemName: "info.circle")
                     }
-            }
+            }.onDelete(perform: vm.delete)
     }
 }
 
