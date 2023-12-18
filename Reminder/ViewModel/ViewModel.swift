@@ -61,25 +61,15 @@ class ReminderViewModel: ObservableObject {
         let ref = db.collection("reminders")
         reminders.remove(atOffsets: offsets)
         
-        ref.getDocuments { snapshot, error in
-            guard error == nil else {
-                print(error!.localizedDescription)
-                return
-            }
-            
-            if let snapshot = snapshot {
-                for document in snapshot.documents {
-                    let data = document.data()
-                    
-                    let id = data["id"] as? String ?? ""
-                    let title = data["title"] as? String ?? ""
-                    let isComplete = data["isComplete"] as? Bool ?? false
-                    
-                    let reminder = Reminder(id: id, title: title, isCompleted: isComplete)
-                    self.reminders.append(reminder)
+        let idsToDelete = offsets.map { reminders[$0].id }
+        
+        idsToDelete.forEach { id in
+                ref.document(id).delete { error in
+                    if let error = error {
+                        print("Error deleting document with ID \(id): \(error.localizedDescription)")
+                    }
                 }
             }
-        }
     }
     
     func toggleComplete(index: Int) {
