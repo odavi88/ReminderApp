@@ -29,6 +29,8 @@ class ReminderViewModel: ObservableObject {
         let randomId = UUID().uuidString
         
         ref.setData(["id": randomId, "title": title, "isComplete": isComplete])
+        
+        reminderTextField = ""
     }
     
     func fetchReminders() {
