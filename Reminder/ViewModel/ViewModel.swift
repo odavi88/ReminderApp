@@ -59,9 +59,9 @@ class ReminderViewModel: ObservableObject {
     
     func delete(at offsets: IndexSet) {
         let ref = db.collection("reminders")
-        reminders.remove(atOffsets: offsets)
         
         let idsToDelete = offsets.map { reminders[$0].id }
+           reminders.remove(atOffsets: offsets)
         
         idsToDelete.forEach { id in
                 ref.document(id).delete { error in
