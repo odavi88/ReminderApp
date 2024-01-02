@@ -21,7 +21,12 @@ struct ListRowView: View {
                             })
                         .fontWeight(vm.reminders[index].isCompleted ? .bold : .thin)
                         .foregroundStyle(.gray)
-                        Text(vm.reminders[index].title)
+                        VStack(alignment: .leading) {
+                            Text(vm.reminders[index].title)
+                            Text("10:45 am")
+                                .font(.caption)
+                                .foregroundStyle(.secondary)
+                        }
                         Spacer()
                         Image(systemName: "info.circle")
                     }

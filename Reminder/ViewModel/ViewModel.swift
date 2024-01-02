@@ -14,6 +14,7 @@ class ReminderViewModel: ObservableObject {
     @Published var reminderTextField: String = ""
     @Published var isPresented: Bool = false
     @Published var isCompleted: Bool = false
+    @Published var selectedDate: Date = Date()
     
     let db = Firestore.firestore()
     
