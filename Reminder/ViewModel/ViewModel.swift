@@ -31,6 +31,10 @@ class ReminderViewModel: ObservableObject {
         ref.setData(["id": randomId, "title": title, "isComplete": isComplete])
     }
     
+    func update() {
+        
+    }
+    
     func fetchReminders() {
         reminders.removeAll()
         
