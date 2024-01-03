@@ -25,7 +25,7 @@ class ReminderViewModel: ObservableObject {
         
         isPresented = false
         
-        let ref = db.collection("reminders").document(title)
+        let ref = db.collection("reminders").document()
         let documentId = ref.documentID
         
         ref.setData(["id": documentId, "title": title, "isComplete": isComplete])
