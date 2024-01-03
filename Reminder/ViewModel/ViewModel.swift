@@ -26,9 +26,9 @@ class ReminderViewModel: ObservableObject {
         isPresented = false
         
         let ref = db.collection("reminders").document(title)
-        let randomId = UUID().uuidString
+        let documentId = ref.documentID
         
-        ref.setData(["id": randomId, "title": title, "isComplete": isComplete])
+        ref.setData(["id": documentId, "title": title, "isComplete": isComplete])
         reminderTextField = ""
     }
     
@@ -61,15 +61,21 @@ class ReminderViewModel: ObservableObject {
         let ref = db.collection("reminders")
         
         let idsToDelete = offsets.map { reminders[$0].id }
-           reminders.remove(atOffsets: offsets)
+        reminders.remove(atOffsets: offsets)
         
         idsToDelete.forEach { id in
-                ref.document(id).delete { error in
-                    if let error = error {
-                        print("Error deleting document with ID \(id): \(error.localizedDescription)")
+            ref.document(id).delete { error in
+                if let error = error {
+                    print("Error deleting document with ID \(id): \(error.localizedDescription)")
+                } else {
+                    if let index = self.reminders.firstIndex(where: { $0.id == id }) {
+                        self.reminders.remove(at: index)
+                        
+                        self.fetchReminders()
                     }
                 }
             }
+        }
     }
     
     func toggleComplete(index: Int) {
