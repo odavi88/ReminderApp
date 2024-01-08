@@ -16,12 +16,13 @@ struct InputView: View {
                     .textFieldStyle(.roundedBorder)
                     .padding(.horizontal)
                 DatePicker("Select a Date & Time", selection: $vm.selectedDate)
+                    .labelsHidden()
                     .padding()
                 Spacer()
             }
             .toolbar {
                 Button(action: {
-                    vm.addData(title: vm.reminderTextField, isComplete: vm.isCompleted)
+                    vm.addData(title: vm.reminderTextField, isComplete: vm.isCompleted, date: vm.selectedDate)
                 }, label: {
                     Text("Add")
                 })

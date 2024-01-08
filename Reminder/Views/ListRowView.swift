@@ -23,7 +23,7 @@ struct ListRowView: View {
                         .foregroundStyle(.gray)
                         VStack(alignment: .leading) {
                             Text(vm.reminders[index].title)
-                            Text("10:45 am")
+                            Text("\(vm.reminders[index].date)")
                                 .font(.caption)
                                 .foregroundStyle(.secondary)
                         }
