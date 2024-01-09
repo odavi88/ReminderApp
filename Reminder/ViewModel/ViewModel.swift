@@ -14,6 +14,7 @@ class ReminderViewModel: ObservableObject {
     @Published var reminderTextField: String = ""
     @Published var isPresented: Bool = false
     @Published var isCompleted: Bool = false
+    @Published var selectedDate: Date = Date()
     
     let db = Firestore.firestore()
     
@@ -21,14 +22,15 @@ class ReminderViewModel: ObservableObject {
         fetchReminders()
     }
     
-    func addData(title: String, isComplete: Bool) {
+    func addData(title: String, isComplete: Bool, date: Date) {
         
         isPresented = false
         
-        let ref = db.collection("reminders").document()
-        let documentId = ref.documentID
+        let ref = db.collection("reminders").document(title)
+        let randomId = UUID().uuidString
         
-        ref.setData(["id": documentId, "title": title, "isComplete": isComplete])
+        ref.setData(["id": randomId, "title": title, "isComplete": isComplete, "date": date])
+        
         reminderTextField = ""
     }
     
@@ -49,8 +51,12 @@ class ReminderViewModel: ObservableObject {
                     let id = data["id"] as? String ?? ""
                     let title = data["title"] as? String ?? ""
                     let isComplete = data["isComplete"] as? Bool ?? false
+                    let timestamp = data["date"] as? Timestamp ?? Timestamp()
                     
-                    let reminder = Reminder(id: id, title: title, isCompleted: isComplete)
+                    let date = timestamp.dateValue()
+                    print(date)
+                    let reminder = Reminder(id: id, title: title, isCompleted: isComplete, date: date)
+                    
                     self.reminders.append(reminder)
                 }
             }
@@ -59,6 +65,7 @@ class ReminderViewModel: ObservableObject {
     
     func delete(at offsets: IndexSet) {
         let ref = db.collection("reminders")
+        
         
         let idsToDelete = offsets.map { reminders[$0].id }
         reminders.remove(atOffsets: offsets)
