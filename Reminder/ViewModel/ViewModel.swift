@@ -51,9 +51,12 @@ class ReminderViewModel: ObservableObject {
                     let id = data["id"] as? String ?? ""
                     let title = data["title"] as? String ?? ""
                     let isComplete = data["isComplete"] as? Bool ?? false
-                    let date = data["date"] as? Date ?? Date()
+                    let timestamp = data["date"] as? Timestamp ?? Timestamp()
                     
+                    let date = timestamp.dateValue()
+                    print(date)
                     let reminder = Reminder(id: id, title: title, isCompleted: isComplete, date: date)
+                    
                     self.reminders.append(reminder)
                 }
             }
@@ -62,6 +65,7 @@ class ReminderViewModel: ObservableObject {
     
     func delete(at offsets: IndexSet) {
         let ref = db.collection("reminders")
+        
         
         let idsToDelete = offsets.map { reminders[$0].id }
            reminders.remove(atOffsets: offsets)
