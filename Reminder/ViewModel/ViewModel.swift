@@ -26,12 +26,14 @@ class ReminderViewModel: ObservableObject {
         
         isPresented = false
         
-        let ref = db.collection("reminders").document(title)
-        let randomId = UUID().uuidString
+        let ref = db.collection("reminders").document()
+        let randomId = ref.documentID
         
         ref.setData(["id": randomId, "title": title, "isComplete": isComplete, "date": date])
         
         reminderTextField = ""
+        selectedDate = Date()
+        fetchReminders()
     }
     
     func fetchReminders() {
