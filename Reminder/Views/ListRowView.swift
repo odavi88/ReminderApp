@@ -11,26 +11,25 @@ struct ListRowView: View {
     @ObservedObject var vm: ReminderViewModel
     var body: some View {
             ForEach(vm.reminders.indices, id: \.self) { index in
-                VStack {
                     HStack {
-                            Button(action: {
-                                vm.toggleComplete(index: index)
-                                }, label: {
-                                    Image(systemName: vm.reminders[index].isCompleted ? "checkmark.circle" : "circle")
-                                        .font(.title2)
-                                        .fontWeight(vm.reminders[index].isCompleted ? .bold : .regular)
-                                })
-                            .fontWeight(vm.reminders[index].isCompleted ? .bold : .thin)
-                            .foregroundStyle(.gray)
-                        TextField("", text: $vm.reminders[index].title)
-                            .padding(6)
+                        Button(action: {
+                            vm.toggleComplete(index: index)
+                            }, label: {
+                                Image(systemName: vm.reminders[index].isCompleted ? "checkmark.circle" : "circle" )
+                                    .font(.title3)
+                                    .fontWeight(vm.reminders[index].isCompleted ? .bold : .regular)
+                            }).buttonStyle(BorderlessButtonStyle())
+                        .fontWeight(vm.reminders[index].isCompleted ? .bold : .thin)
+                    .foregroundStyle(.gray)
+                            VStack(alignment: .leading) {
+                                Text(vm.reminders[index].title)
+                                Text("\(vm.reminders[index].date)")
+                                    .font(.caption)
+                                    .foregroundStyle(.secondary)
+                            }
                             Spacer()
-                            Image(systemName: "info.circle")
-                            .font(.title2)
                     }
-                    Divider()
-                }
-            }
+            }.onDelete(perform: vm.delete)
     }
 }
 

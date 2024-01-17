@@ -13,36 +13,36 @@ struct MainView: View {
     @State private var reminderTextfield: String = ""
     var body: some View {
         NavigationStack {
-            ScrollView {
+            List {
                 ListRowView(vm: vm)
-                    .padding()
-                    .listStyle(.inset)
-                    .navigationTitle("Reminders")
-                    .toolbar {
-                        ToolbarItemGroup(placement: .primaryAction) {
-                            Button(action: {
-                                vm.isPresented.toggle()
-                            }, label: {
-                                Text("Create")
-                            }).sheet(isPresented: $vm.isPresented) {
-                                InputView(vm: vm)
-                            }
-                        }
+            }
+            .padding()
+            .listStyle(.inset)
+            .navigationTitle("Reminders")
+            .toolbar {
+                ToolbarItemGroup(placement: .primaryAction) {
+                    Button(action: {
+                        vm.isPresented.toggle()
+                    }, label: {
+                        Text("Create")
+                    }).sheet(isPresented: $vm.isPresented) {
+                        InputView(vm: vm)
                     }
-                    .overlay {
-                        if vm.reminders.isEmpty {
-                            ContentUnavailableView("No Reminders Added", systemImage: "tray.fill")
-                        }
-                    }
+                }
+            }
+            .overlay {
+                if vm.reminders.isEmpty {
+                    ContentUnavailableView("No Reminders Added", systemImage: "tray.fill")
+                }
             }
             .refreshable {
                 vm.fetchReminders()
             }
         }
     }
-//    init() {
-//        vm.getData()
-//    }
+    //    init() {
+    //        vm.getData()
+    //    }
 }
 
 #Preview {
