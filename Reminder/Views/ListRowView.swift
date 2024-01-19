@@ -23,8 +23,8 @@ struct ListRowView: View {
                         .foregroundStyle(vm.reminders[index].isCompleted ? .gray : Color(.systemGray4))
                             VStack(alignment: .leading) {
                                 Text(vm.reminders[index].title)
-                                Text("\(vm.reminders[index].date)")
-                                    .font(.caption)
+                                Text("\(vm.reminders[index].date.formatted(date: .long, time: .shortened))")
+                                    .font(.footnote)
                                     .foregroundStyle(.secondary)
                             }
                             Spacer()
