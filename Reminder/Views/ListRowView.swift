@@ -25,6 +25,9 @@ struct ListRowView: View {
                                 Text(vm.reminders[index].title)
                                 Text("\(vm.reminders[index].date.formatted(date: .long, time: .shortened))")
                                     .font(.footnote)
+                                    .font(.headline)
+                                Text("\(vm.reminders[index].date)")
+                                    .font(.caption)
                                     .foregroundStyle(.secondary)
                             }
                             Spacer()
