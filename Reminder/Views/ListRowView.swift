@@ -16,19 +16,18 @@ struct ListRowView: View {
                             vm.toggleComplete(index: index)
                             }, label: {
                                 Image(systemName: vm.reminders[index].isCompleted ? "checkmark.circle" : "circle" )
-                                    .font(.title3)
+                                    .font(.title)
                                     .fontWeight(vm.reminders[index].isCompleted ? .bold : .regular)
                             }).buttonStyle(BorderlessButtonStyle())
                         .fontWeight(vm.reminders[index].isCompleted ? .bold : .thin)
-                        .foregroundStyle(.gray)
-                        VStack(alignment: .leading) {
-                            Text(vm.reminders[index].title)
-                            Text("\(vm.reminders[index].date.formatted(date: .long, time: .shortened))")
-                                .font(.caption)
-                                .foregroundStyle(.secondary)
-                        }
-                        Spacer()
-                        Image(systemName: "info.circle")
+                        .foregroundStyle(vm.reminders[index].isCompleted ? .gray : Color(.systemGray4))
+                            VStack(alignment: .leading) {
+                                Text(vm.reminders[index].title)
+                                Text("\(vm.reminders[index].date)")
+                                    .font(.caption)
+                                    .foregroundStyle(.secondary)
+                            }
+                            Spacer()
                     }
             }.onDelete(perform: vm.delete)
     }
