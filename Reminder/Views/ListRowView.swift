@@ -20,14 +20,15 @@ struct ListRowView: View {
                                     .fontWeight(vm.reminders[index].isCompleted ? .bold : .regular)
                             }).buttonStyle(BorderlessButtonStyle())
                         .fontWeight(vm.reminders[index].isCompleted ? .bold : .thin)
-                    .foregroundStyle(.gray)
-                            VStack(alignment: .leading) {
-                                Text(vm.reminders[index].title)
-                                Text("\(vm.reminders[index].date)")
-                                    .font(.caption)
-                                    .foregroundStyle(.secondary)
-                            }
-                            Spacer()
+                        .foregroundStyle(.gray)
+                        VStack(alignment: .leading) {
+                            Text(vm.reminders[index].title)
+                            Text("\(vm.reminders[index].date.formatted(date: .long, time: .shortened))")
+                                .font(.caption)
+                                .foregroundStyle(.secondary)
+                        }
+                        Spacer()
+                        Image(systemName: "info.circle")
                     }
             }.onDelete(perform: vm.delete)
     }
